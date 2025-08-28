@@ -20,7 +20,20 @@ void addProduct(vector<Product>& products, int& nextId) {
     // 3. Ask for the product's name. Use `cin.getline(newProduct.name, 50)` to read it.
     // 4. Ask for quantity and price.
     // 5. Add the new product to the 'products' vector.
-    cout << "addProduct function is not implemented yet." << endl;
+    // Product newProduct;
+    // newProduct.id = nextId++;
+    // cin.ignore();
+    // cout <<"Enter product name: ";
+    // getline(cin, newProduct.name);
+
+    // cout <<"Enter quantity: ";
+    // cin >> newProduct.quantity;
+
+    // cout <<"Enter price: ";
+    // cin >> newProduct.price;
+
+    // products.push_back(newProduct);
+    // cout << "addProduct function is not implemented yet." << endl;
 }
 
 void displayAllProducts(const vector<Product>& products) {
@@ -28,15 +41,36 @@ void displayAllProducts(const vector<Product>& products) {
     // 1. Check if the 'products' vector is empty.
     // 2. If it is, print "Inventory is empty."
     // 3. If not, loop through and print each product's details in a clean table format.
-    cout << "displayAllProducts function is not implemented yet." << endl;
-}
+    // if (products.empty()) {
+    //     cout <<"Inventory is empty.";
+    //     return;
+    // }
+
+    // for (const auto& p : products) {
+    //     cout << left << setw(5) << p.id << setw(20) << p.name
+    //          << setw(10) << p.quantity
+    //          << setw(10) << fixed << setprecision(2) << p.price
+    //          << endl;
+    // }
+}//done
 
 void searchProduct(const vector<Product>& products) {
     // INSTRUCTION:
     // 1. Ask the user to search by ID.
     // 2. Find the product with that ID and print its details.
     // 3. If not found, print a "Product not found" message.
-    cout << "searchProduct function is not implemented yet." << endl;
+    int searchId;
+    cout<< "Enter product Id: ";
+    cin >> searchId;
+
+    for (const auto& p : products){
+        if(p.id == searchId) {
+            cout <<"Product is found!";
+        }
+        else{
+            cout <<"Product not found!";
+        }
+    }
 }
 
 void updateProduct(vector<Product>& products) {
@@ -44,7 +78,29 @@ void updateProduct(vector<Product>& products) {
     // 1. Ask for the ID of the product to update.
     // 2. Find the product. If not found, print an error.
     // 3. If found, ask for the new quantity and price and update the product in the vector.
-    cout << "updateProduct function is not implemented yet." << endl;
+    int updateId;
+    cout <<"Enter product ID to update: ";
+    cin >> updateId;
+
+    bool found = false;
+    for (auto& p : products) {
+        if (p.id == updateId) {
+            cout << "Enter new quantity: ";
+            cin >> p.quantity;
+
+            cout << "Enter new price: ";
+            cin >> p.price;
+
+            cout << "Product updated successfully!\n";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Product not found!\n";
+    }
+    
 }
 
 void deleteProduct(vector<Product>& products) {
@@ -53,7 +109,7 @@ void deleteProduct(vector<Product>& products) {
     // 2. Find and remove it from the vector. (Hint: use `products.erase()`).
     // 3. If not found, print an error message.
     cout << "deleteProduct function is not implemented yet." << endl;
-}
+}//Theany
 
 void saveToFile(const vector<Product>& products, const string& filename) {
     // INSTRUCTION FOR BINARY FILE:
@@ -64,7 +120,7 @@ void saveToFile(const vector<Product>& products, const string& filename) {
     //    Hint: `outFile.write(reinterpret_cast<const char*>(&product), sizeof(Product));`
     // 5. Close the file.
     cout << "saveToFile function is not implemented yet." << endl;
-}
+}//Theany
 
 void loadFromFile(vector<Product>& products, int& nextId, const string& filename) {
     // INSTRUCTION FOR BINARY FILE:
